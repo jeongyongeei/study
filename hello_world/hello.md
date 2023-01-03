@@ -22,3 +22,7 @@
 ## Merge 이해
 - https://learngitbranching.js.org/
 - 위사이트 이용하면 편함
+
+
+## 오늘의 기분
+- 내 기분과는 달리 하늘이 푸르르다.

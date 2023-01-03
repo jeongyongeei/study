@@ -22,3 +22,7 @@
 ## Merge 이해
 - https://learngitbranching.js.org/
 - 위사이트 이용하면 편함
+
+
+## 충돌 해결하기
+- 제일 중요한 점 : 겁내지 않는 것

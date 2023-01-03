@@ -17,4 +17,8 @@
 
 ## 브랜치
 - 버전 관리를 위한 내용으로 사용가능함
-- 가상의 작업 공간
+- 현재 작업 중인 브랜치 --> Head Branch
+
+## Merge 이해
+- https://learngitbranching.js.org/
+- 위사이트 이용하면 편함

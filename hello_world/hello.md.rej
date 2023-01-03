@@ -1,0 +1,9 @@
+diff a/hello_world/hello.md b/hello_world/hello.md	(rejected hunks)
+@@ -16,4 +16,5 @@
+ - 이후 '코드 뭉치 버리기' 선택
+ 
+ ## 브랜치
+-- 버전 관리를 위한 내용으로 사용가능함
+\ No newline at end of file
++- 버전 관리를 위한 내용으로 사용가능함
++- 현재 작업 중인 브랜치 --> Head Branch

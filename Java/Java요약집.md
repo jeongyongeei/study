@@ -51,3 +51,31 @@
 > - (1) 객체들의 공통적으로 가지고 있는 개념을 추출함
 > - (2) 공통 개념이 추출되면, 추출한 개념을 이용한 최소한의 기능을 가진 상위 개념 객체를 생성함
 > - (3) 상위 개념의 객체를 상속받아 구현을 함
+
+
+> 4) 다양성
+> - 객체 간의 결합도를 줄이기 위해 OOP(객체 지향 프로그래밍, Object-Oriented Programming)에 도입된 개념
+```
+public class MainRun{
+
+    public void inCome(Animal a){
+        a.sound();
+    }
+
+    public static void main(String args[]){
+
+        MainRun run = new MainRun();
+
+        Animal cat = new Cat(); // 부모클래스 타입으로 레퍼런스 생성
+        Animal dog = new Dog(); // 부모클래스 타입으로 레퍼런스 생성
+
+        run.inCome(cat);
+        run.inCome(dog)
+    }
+}
+```
+> - 하위 클래스인 Doc, Cat 은 각각 상위 클래스인 Animal 클래스를 상속 받아 구현됨
+> - 실행 시 cat 변수는 상위 클래스 타입인 Animal 타입의 레퍼런스로 Cat 타입의 객체를 연결함, Dog 도 마찬가지다.
+> - 실제 데이터를 처리하는 inCome() 메소드를 살펴보면 인자 값으로 Animal 타입의 객체를 받아서 처리함
+> - 위 코드가 정상 작동하는 이유는 상위 클래스인 Animal 타입의 변수로 선언하였기 때문이다.
+> - 이와 같이 설명하는 이유는 객체 간의 결합도를 줄이기 위하여 사용되는 다양성을 설명하기 위함이다.

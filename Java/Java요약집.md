@@ -150,7 +150,9 @@ public class MainRun{
     - Object 클래스도 해당 패키지 내에 존재함
 <br/>
 <br/>
+
     #### 1) Class 클래스 (java.lang.Class)
+
     - 객체의 클래스 타입에 관한 정보
     - new 키워드를 사용하지 않고 Object 클래스의 getClass() 메소드를 이용하여 얻을 수 있음
     - Object 클래스는 모든 클래스의 최상위 클래스이므로 모든 객체는 getClass()를 가지고 있음
@@ -183,7 +185,6 @@ public class MainRun{
     #### 3) Object Wrapper 클래스
     - 자바에서 기본형으로 사용하는 Primitive 데이터 타입은 여덟가지
     - 자바 기본형을 객체로 변환할 수 있도록 도와주는 역할을 함
-<br/>
     논리형 - boolean - java.lang.Boolean <br>
     문자형 - char - java.lang.Charactor <br>
     수치형 <br>

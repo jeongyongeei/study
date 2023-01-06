@@ -16,27 +16,25 @@
  2) 변수 (예) 자동차 색깔, 부품 이름
  3) 매소드 (예) 가속, 감속, 브레이크 등 동적 행위
 
-## main, static 
+## 기타 설명
 1. main : JVM이 객체를 호출할 때에 진입점 역할을 수행함
-    1. JVM 영역
-         
-         (1) Method 영역
-        
-         (2) Heap 영역
-        
-         (3) Stack 영역
-        
-        여기서, Static 선언을 하게 되면 Heap 영역이 아닌 Methon, Stack 영역으로 메소드가 형성이 되면서 정상 실행이 된다. 만약 main 에 static 이 선언되어 있지 않다면 JVM 과 메모리 상의 구조적인 문제가 발생될 가능성이 크다.
+2. JVM 영역
+   
+    (1) Method 영역
+    
+    (2) Heap 영역
+    
+    (3) Stack 영역
+    -    여기서, Static 선언을 하게 되면 Heap 영역이 아닌 Methon, Stack 영역으로 메소드가 형성이 되면서 정상 실행이 된다. 만약 main 에 static 이 선언되어 있지 않다면 JVM 과 메모리 상의 구조적인 문제가 발생될 가능성이 크다.
 
-    2. Package / Import
+3. Package / Import
+       
+    (1) Package
         
-        (1) Package
+    - 모든 클래스는 패키지라는 고유 주소를 가지고 있음 , 일반적으로 클래스의 고유 주소를 나타내기 위해서 "패키지명+클래스명" 형태로 표기함
         
-        모든 클래스는 패키지라는 고유 주소를 가지고 있음 , 일반적으로 클래스의 고유 주소를 나타내기 위해서 "패키지명+클래스명" 형태로 표기함
-        
-        (2) Import
-        
-        클래스 내부에서 다른 클래스의 위치를 표현하기 위해 사용함. 다만, java.lang. 내부에 속해져 있는 클래스의 경우엔 import 가 생략될 수 있다.
+    (2) Import
+    - 클래스 내부에서 다른 클래스의 위치를 표현하기 위해 사용함. 다만, java.lang. 내부에 속해져 있는 클래스의 경우엔 import 가 생략될 수 있다.
 
 # 객체지향
 ## 기본 속성
@@ -150,3 +148,117 @@ public class MainRun{
 3. java.io 패키지 : 입력/출력 작업을 위한 클래스들로 이루어짐, (예) File, Filereadeer, FileWriter 등
 4. java.sql 패키지 : 데이터 베이스 연동을 위한 클래스들을 제공하는 패키지
 
+### 참고사항
+- 기본 API : Java 에서 기본적으로 제공하는 API, (사용 형식) java.aaa.bbb 
+- 확장 API : 기본 API 기반으로 작성하며 확장된 의미로 javax.aaa.bbb 형태로 표현함
+
+- Example
+    
+    (1) 기본 API : java.lang.Object,  java.util.List 등
+
+    (2) 확장 API : javax.swing.JButton, org.xml.sax, kr.or.javacate 등
+
+
+# Object 클래스
+
+## 클래스 유틸리티
+
+- protected Object clone() - 객체 자신을 복사하여 똑같은 복사본을 리턴함
+- protected void finalize() - 가비지 컬렉터에 의해 객체가 메모리에서 삭제 대상으로 결정될 경우, 제거 전에 호출되는 메소드
+- Class getClass() - 객체의 클래스 정보를 리턴함
+- boolean quals(Object obj) - 객체가 같은지 비교하는 메소드, 모든 클래스에서 오버라이딩해야 함
+- String toString() - 객체 정보를 문자열로 리턴함
+- int hashCode() - 객체의 고유값을 해시 코드로 리턴함
+
+## 동기화 유틸리티
+
+- void notify() - 객체를 사용하려고 대기하고 있는 스레드 중 하나를 깨움
+- void notifyAll() - 객체를 사용하려고 대기하고 있는 모든 스레드를 깨움
+- void wait() - 다른 객체가 깨워줄 때까지 대기 상태
+- void wait(long timeout) - 다른 객체가 깨워주거나 "TimeOver"까지 대기상태
+- void wait(long timeout, int nanos) - 다른 객체가 깨워주거나 "TimeOver" 시간의 나노초까지 지정하여 대기상태로 만듬
+
+> Object 클래스에는 객체의 정보를 제공하는 특수한 메소드가 있음, 자주 사용되는 메소드는 toString(), equals(), hashCode()
+
+
+__1. toString()__
+- int, char 같이 기본형을 나타내는 primitive 데이터 타입을 제외한 모든 것이 객체로 이루어져 있음
+- toString() 메소드는 이러한 객체 정보를 문자열로 리턴함
+- 아래 예제 참조
+```java
+package kr.or.javacafe.sample6;
+
+public class TV{
+    
+    int channel;
+    int volume;
+
+    public TV(int channel, int volume){
+        this.channel = channel;
+        this.volume = volume;
+    }
+
+    public String toString(){ // 숫자형을 문자형으로 변환하여 return
+        return "TV Channel is " + this.channel + ", Volume is " + this.vloume;
+    }
+
+    public static void main(String args[]){
+        TV objTV = new TV(11, 5);
+        System.out.printIn(objTV);
+    }
+}
+
+// 실행 결과 : TV Channel is 11, Volume is 5
+```
+
+__2. equals()__
+- 자바에서 객체를 생성하면 객체 자체를 가져오는 것이 아니라 단순히 객체의 레퍼런스를 가져옴
+    > TV objTV = new TV();
+- 객체 레퍼런스란 일종의 포인터로 'new' 키워드를 이용하여 생성된 objTV 변수는 TV 객체가 생성된 곳의 주소값을 가지게 됨
+- 실제 TV 객체 자체는 메모리 힙(Heap) 영역에 생성되고 TV 객체를 호출할 수 있도록 이 영역의 주소값만 제공함
+- equals() 메소드는 객체간의 비교할 수 있도록 Object 클래스에서 기본으로 제공함
+- 아래 예제 참조
+```java
+
+package kr.or.javacate.sample7;
+
+public class TV{
+
+    int channel;
+    int volume;
+
+    public TV(int channel, int volume){
+        this.channel = channel;
+        this.volume = volume;
+    }
+
+    public String toString(){ // 숫자형을 문자형으로 변환하여 return
+        return "TV Channel is " + this.channel + ", Volume is " + this.vloume;
+    }
+
+    public static void main(String args[]){
+        TV objTV1 = new TV(11, 5);
+        TV objTV2 = new TV(11, 5);
+
+        // 실행 결과는 두 객체가 다르다.
+        if(objTV1.equals(objTV2)){
+            System.out.printIn("두 객체는 같다.");
+        } else {
+            System.out.printIn("두 객체는 다르다.");
+        }
+
+        // 두 객체의 레퍼런스를 같게 만듬
+        objTV1 = objTV2;
+        
+        // 레퍼런스 동일하게 맞추면 실행 결과는 두 객체가 같다.
+        if(objTV1.equals(objTV2)){
+            System.out.printIn("두 객체는 같다.");
+        } else {
+            System.out.printIn("두 객체는 다르다.");
+        }
+
+}
+
+
+// 실행 결과 : 첫번째 if 문은 두 객체가 다르다, 두번째 if 문은 두 객체가 같다.
+```

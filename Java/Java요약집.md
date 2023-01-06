@@ -120,3 +120,26 @@ public class MainRun{
 > - JDK와 같은 API를 제공하지 않기 때문에 Java EE API를 사용하려면 Java EE 명세를 실제 구현한 구현체를 함께 사용해야 된다.
 > - WAS 제품들이 Java EE 명세를 모두 구현하고 있기 때문에 Java EE 가 제공하는 API는 WAS 환경에서만 실행이 가능하다.
 
+## Java ME
+> - 모바일 환경에서 자바 기반의 프로그램을 제작하는 데 적합한 API로 구성되어 있음
+> - 오라클에서 모바일용 SDK를 별도로 지원하고 있음
+
+# Java Development Kit (JDK)
+
+## 기본 툴 종류
+> - java : 실제 자바 프로그램을 실행시키는 도구
+> - javac : 자바 소스 코드를 컴파일하는 도구
+> - javadoc : API 문서를 생성해주는 APJ 문서 생성 도구
+> - jdb : 자바 소스 디버깅 도구
+> - jar : 자바 Archive(JAR) 파일 생성 도구
+> - appletviewer : 애플릿을 간단하게 실행해주는 도구
+
+## Java API
+> - 프로그램을 위한 기본적인 API들로 구성되어 있음 ,API 라는 것은 라이브러리로 생각하면 됨
+> - 대표적인 API는 다음과 같다.
+> 1. java.lang 패키지 : 자바에서 사용되는 가장 기본이 되는 클래스를 담고 있다.
+> 2. java.util 패키지 : 유틸리티 클래스들로 이루어짐, (예) Arrays, Date, Object 등
+> 3. java.io 패키지 : 입력/출력 작업을 위한 클래스들로 이루어짐, (예) File, Filereadeer, FileWriter 등
+> 4. java.sql 패키지 : 데이터 베이스 연동을 위한 클래스들을 제공하는 패키지
+
+

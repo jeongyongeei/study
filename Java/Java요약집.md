@@ -148,8 +148,6 @@ public class MainRun{
     - 프로그래밍하는데 필요한 기본 클래스를 제공함
     - import 키워드를 이용하지 않더라도 자동으로 컴파일됨
     - Object 클래스도 해당 패키지 내에 존재함
-<br/>
-<br/>
 
     #### 1) Class 클래스 (java.lang.Class)
 

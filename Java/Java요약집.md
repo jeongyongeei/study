@@ -141,12 +141,66 @@ public class MainRun{
 - appletviewer : 애플릿을 간단하게 실행해주는 도구
 
 ## Java API
-- 프로그램을 위한 기본적인 API들로 구성되어 있음 ,API 라는 것은 라이브러리로 생각하면 됨
-- 대표적인 API는 다음과 같다.
-1. java.lang 패키지 : 자바에서 사용되는 가장 기본이 되는 클래스를 담고 있다.
-2. java.util 패키지 : 유틸리티 클래스들로 이루어짐, (예) Arrays, Date, Object 등
-3. java.io 패키지 : 입력/출력 작업을 위한 클래스들로 이루어짐, (예) File, Filereadeer, FileWriter 등
-4. java.sql 패키지 : 데이터 베이스 연동을 위한 클래스들을 제공하는 패키지
+   - 프로그램을 위한 기본적인 API들로 구성되어 있음 ,API 라는 것은 라이브러리로 생각하면 됨
+   - 대표적인 API는 다음과 같다.
+
+1. java.lang 패키지
+    - 프로그래밍하는데 필요한 기본 클래스를 제공함
+    - import 키워드를 이용하지 않더라도 자동으로 컴파일됨
+    - Object 클래스도 해당 패키지 내에 존재함
+<br/>
+<br/>
+    #### 1) Class 클래스 (java.lang.Class)
+    - 객체의 클래스 타입에 관한 정보
+    - new 키워드를 사용하지 않고 Object 클래스의 getClass() 메소드를 이용하여 얻을 수 있음
+    - Object 클래스는 모든 클래스의 최상위 클래스이므로 모든 객체는 getClass()를 가지고 있음
+    - 예시)
+
+        static Class forName(String className) <br> - static 메소드 내에 넘어온 클래스명의 객체에 대한 Class를 리턴함
+
+        String getName() <br> - 객체의 클래스명을 리턴함
+
+        Object newInstance <br> - 객체의 클래스 인스턴스를 생성하여 리턴함
+
+
+    #### 2) String 클래스 (java.lang.String)
+    - 문자열 처리를 위해 자바에서 제공하는 가장 기본적인 클래스
+    - 한 번 생성된 문자열의 내용을 변경할 수 없음
+    - 이 때문에 Primitive 데이터 타입처럼 사용이 가능함
+
+        int length <br> - 문자열의 길이를 리턴함
+
+        char charAt(int index) <br> - index로 지정된 위치의 문자열을 리턴함
+
+        boolean equals(Object  anObject) <br> - 같은 값을 가진 문자열은 true가 리턴되도록 오버라이딩됨
+
+        String substring(int beginIndex) <br> - beginIndex 에 해당되는 문자열까지 잘러서 리턴함
+
+        String replace(char oldChar, char newChar) <br> -
+        문자열에서 oldChar 로부터 되어 있는 문자를 newChar로 변환 리턴함
+
+    
+    #### 3) Object Wrapper 클래스
+    - 자바에서 기본형으로 사용하는 Primitive 데이터 타입은 여덟가지
+    - 자바 기본형을 객체로 변환할 수 있도록 도와주는 역할을 함
+<br/>
+    논리형 - boolean - java.lang.Boolean <br>
+    문자형 - char - java.lang.Charactor <br>
+    수치형 <br>
+    &nbsp; 1) 정수 <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; (1) byte - java.lang.Byte <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; (2) short - java.lang.Short <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; (3) int - java.lang.Integer <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; (4) long - java.lang.Long <br>
+    &nbsp; 2) 정수 <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; (1) float - java.long.Floct
+    &nbsp;&nbsp;&nbsp;&nbsp; (2) double - java.lang.Double
+
+    
+    
+
+
+
 
 ### 참고사항
 - 기본 API : Java 에서 기본적으로 제공하는 API, (사용 형식) java.aaa.bbb 
@@ -157,6 +211,8 @@ public class MainRun{
     (1) 기본 API : java.lang.Object,  java.util.List 등
 
     (2) 확장 API : javax.swing.JButton, org.xml.sax, kr.or.javacate 등
+
+
 
 
 # Object 클래스
@@ -262,3 +318,19 @@ public class TV{
 
 // 실행 결과 : 첫번째 if 문은 두 객체가 다르다, 두번째 if 문은 두 객체가 같다.
 ```
+- objTV1, objTV2 변수가 가리키는 객체가 다른 메모리 공간에 있다면, 내용이 같더라도 equals() 메소드에선 False이 됨
+- 클래스의 인스턴스가 프로세스 내에서 하나만 생성되는 경우라든지, 상속 관계의 부모 클래스에 이미 equals() 메소드가 구현되어 있는 경우라면 굳이 equals() 메소드를 오버라디이하지 않아도 됨
+
+    > 오버라이딩(overriding) - 상속 관계에 있는 부모 클래스에서 이미 정의된 메소드를 자식 클래스에서 같은 시그니처를 갖는 메소드로 다시 정의하는 것 <br>
+    > 오버로딩(Overloading) - 서로 다른 시그니처를 갖는 여러 메소드를 하나의 이름으로 정의하는 것 <br>
+
+
+__3. hashCode()__
+- hashCode() 메소드를 이용하여 객체의 고유값을 구함
+- HashTable이나 HashMap 같은 해싱 알고리즘을 사용하는 자료구조에 주로 사용됨
+- 해당 메소드를 호출하면 객체의 메모리 주소를 바탕으로 4바이트의 고유한 숫자 값으로 리턴함
+- 메모리 주소가 다른 객체는 같은 hashCode(해시 코드값)을 가질 수 없음
+- equals() 메소드를 오버라이딩할 경우 hashCode() 메소드도 같이 해야됨
+- equals() 메소드만 오버라이딩할 경우 해시기반의 자료 구조를 사용할 때 올바르게 동작하지 않음
+- 참고로 String 클래스는 문자열의 메모리 값이 달라도 문자열이 동일하면 같은 객체로 바라보기 때문에 hashCode() 메소드도 같은 해시값을 리턴하도록 오버라이딩 되어 있음
+

@@ -28,6 +28,7 @@
 ### (2) main() 메서드 : 메서드 스택 프레임
 - main() 메서드는 프로그램 시작점으로 해당 메서드가 실행될 때 메모리에 변화를 순차적으로 알아보자. <br>
 <br>
+
 ```java
 public class Start{
     public static void main(STringp[] args){
@@ -70,6 +71,8 @@ public class Start{
 ---
 
 ## __3) 변수와 메모리__ <br>
+
+
 ```java
 public class Start2{
     public static void main(String[] args){

@@ -78,10 +78,9 @@ public class Start2{
     public static void main(String[] args){
         int i;
         i = 10;
-
         double d = 20.0;
     }
-}
+} // 7번째 줄
 ```
 
 - 위 코드에서 이전 순서대로 진행하면 'int i;' 부분은 main() 메서드 스택 프레임 내에 i 라는 변수 공간이 생김
@@ -92,3 +91,5 @@ public class Start2{
 - 여기서 i 변수와 다르게 d 변수 는 두가지 명령을 동시에 수행함
 - d 변수 공간을 만들고 값을 넣는다 라는 액션을 하게 됨
 - 7번째 줄의 닫기 중괄호의 main() 메서드 스택 프레임이 스택 영역에서 사라지고 프로그램이 종료된다.
+
+

@@ -21,3 +21,13 @@
 
 ## 툴 오버레이
 ![](screenshot/2023-01-12-16-58-03.png)
+
+---
+## DB 연결
+- context.xml 내에 DB 정보를 입력하여 연결함
+- 'devon-framework.xml' 파일 내에 'datasources' 테그에 포함된 'jndi-name' 을 확인함
+- 'jndi-name'에 기술된 이름을 기반으로 'context.xml' 파일에서 'Resource' 테그 내에 정의된 DB에 접속함
+- 'devon-framework.xml' 파일 내에 확인
+![](2023-01-16-18-22-46.png)
+- 'context.xml' 부분에서 dev/prd 등 DB 정보를 상세 구분하여 등록함
+![](2023-01-16-18-24-54.png)

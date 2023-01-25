@@ -91,3 +91,4 @@
 - 열 데이터가 부족하여 조인을 통해 열을 가져오는 과정
 - Non-Clustered Index + Heap 일 경우 RID Lookup 이 발생됨<br>
 ![](screenshot/2023-01-19-18-53-24.png)
+
